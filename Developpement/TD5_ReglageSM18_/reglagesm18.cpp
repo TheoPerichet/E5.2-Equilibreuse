@@ -33,6 +33,7 @@ void ReglageSM18::on_pushButton_LancerMesure_clicked()
     else
     {
         tension.stop();
+        ui->lcdNumber->display(0);
     }
 }
 

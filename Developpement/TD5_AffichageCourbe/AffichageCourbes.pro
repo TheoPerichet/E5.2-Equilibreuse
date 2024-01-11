@@ -1,10 +1,8 @@
-QT       += core gui
-LIBS += /usr/local/lib/libuldaq.a
-LIBS += -lusb-1.0
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17
+CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -13,17 +11,23 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mcculdaq.cpp \
-    reglagesm18.cpp
+    widgetcourbes.cpp
 
 HEADERS += \
     constantes.h \
     mcculdaq.h \
-    reglagesm18.h
+    widgetcourbes.h
 
 FORMS += \
-    ReglagesSM18.ui
+    widgetcourbes.ui
+
+TRANSLATIONS += \
+    AffichageCourbes_fr_FR.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+LIBS += /usr/local/lib/libuldaq.a
+LIBS += -lusb-1.0
